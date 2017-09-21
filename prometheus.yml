@@ -182,18 +182,18 @@ instance_groups:
             static_configs:
               - targets:
                 - localhost:9101
-          - job_name: mysql
-            file_sd_configs:
-              - files:
-                - /var/vcap/store/bosh_exporter/bosh_target_groups.json
-            relabel_configs:
-              - source_labels: [__meta_bosh_job_process_name]
-                regex: mysqld_exporter
-                action: keep
-              - source_labels: [__address__]
-                regex: "(.*)"
-                target_label: __address__
-                replacement: "${1}:9104"
+          #- job_name: mysql
+          #  file_sd_configs:
+          #    - files:
+          #      - /var/vcap/store/bosh_exporter/bosh_target_groups.json
+          #  relabel_configs:
+          #    - source_labels: [__meta_bosh_job_process_name]
+          #      regex: mysqld_exporter
+          #      action: keep
+          #    - source_labels: [__address__]
+          #      regex: "(.*)"
+          #      target_label: __address__
+          #      replacement: "${1}:9104"
           - job_name: nats
             static_configs:
               - targets:
